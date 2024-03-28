@@ -14,24 +14,24 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 		self.action_generate_data.triggered.connect(self.trigger_actn_gererate_data)
 
 	def trigger_actn_gererate_data(self):
-		dialog_enter_values = EnterValues()
+		dialog_enter_values = EnterValues(self)
 		dialog_enter_values.exec()
 
-	def filling_matrix_table(self):
+	def filling_matrix_table(self, row, column, min, max):
 
-		self.tableWidget_matrix.setRowCount(5)
-		self.tableWidget_matrix.setColumnCount(5)
+		self.tableWidget_matrix.setRowCount(row)
+		self.tableWidget_matrix.setColumnCount(column)
 
 		headers = []
 
-		for i in range(5):
+		for i in range(column):
 			headers.append(f"Станок {i+1}")
 		
 		self.tableWidget_matrix.setHorizontalHeaderLabels(headers)
 
 		for row in range(self.tableWidget_matrix.rowCount()):
 			for col in range(self.tableWidget_matrix.columnCount()):
-				item = QtWidgets.QTableWidgetItem(str(randint(1, 10)))
+				item = QtWidgets.QTableWidgetItem(str(randint(min, max)))
 				self.tableWidget_matrix.setItem(row, col, item)
 
 		self.tableWidget_matrix.resizeColumnsToContents()
@@ -39,8 +39,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 class EnterValues(QtWidgets.QDialog, Ui_Dialog_enter_values):
 	'''Dialog_enter_values class'''
-	def __init__(self):
+	def __init__(self, main_window):
 		super().__init__()
+		self.main_window = main_window
 
 		self.setupUi(self)
 
@@ -56,10 +57,11 @@ class EnterValues(QtWidgets.QDialog, Ui_Dialog_enter_values):
 		elif self.textEdit_max.toPlainText() == "":
 			self.textEdit_max.setPlainText("Введите данные!")
 		else:
-			self.textEdit_count_details.toPlainText() # TAKE IT
-			self.textEdit_count_machienes.toPlainText() # TAKE IT
-			self.textEdit_min.toPlainText() # TAKE IT
-			self.textEdit_max.toPlainText() # TAKE IT
+			self.main_window.filling_matrix_table(int(self.textEdit_count_details.toPlainText()), int(self.textEdit_count_machienes.toPlainText()),
+			int(self.textEdit_min.toPlainText()), int(self.textEdit_max.toPlainText()))
+			self.main_window.radioButton_metod_johns.setEnabled(True)
+			self.main_window.radioButton_metod_petrova_sokolicina.setEnabled(True)
+			self.main_window.comboBox_variants.setEnabled(True)
 			self.reject()
 
 def main():
