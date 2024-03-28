@@ -129,21 +129,36 @@ background-color: rgba(255, 255, 255, 70);
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_matrix">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 30);
+        <item>
+         <widget class="QTableWidget" name="tableWidget_matrix">
+          <property name="styleSheet">
+           <string notr="true">QTableWidget{
+background-color: rgba(255, 255, 255, 30);
 border: 1px solid rgba(255, 255, 255, 40);
 border-radius: 7px;
 font-weight: bold;
-font-size: 20pt;</string>
-        </property>
-        <property name="text">
-         <string>matrix</string>
-        </property>
-       </widget>
+font-size: 20pt;
+}
+
+QHeaderView::section {
+background-color: rgba(255, 255, 255, 30);
+border: 1px solid rgba(255, 255, 255, 40);
+border-radius: 7px;
+font-weight: bold;
+font-size: 20pt;
+}
+
+QTableWidget QTableCornerButton::section {
+   background-color: rgba(255, 255, 255, 30);
+border: 1px solid rgba(255, 255, 255, 40);
+border-radius: 7px;
+font-weight: bold;
+font-size: 20pt;
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>

@@ -86,15 +86,35 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_do.setObjectName("pushButton_do")
         self.verticalLayout_metods.addWidget(self.pushButton_do)
-        self.verticalLayout_matrix.addLayout(self.verticalLayout_metods)
-        self.label_matrix = QtWidgets.QLabel(parent=self.centralwidget_main)
-        self.label_matrix.setStyleSheet("background-color: rgba(255, 255, 255, 30);\n"
+        self.tableWidget_matrix = QtWidgets.QTableWidget(parent=self.centralwidget_main)
+        self.tableWidget_matrix.setStyleSheet("QTableWidget{\n"
+"background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
 "border-radius: 7px;\n"
 "font-weight: bold;\n"
-"font-size: 20pt;")
-        self.label_matrix.setObjectName("label_matrix")
-        self.verticalLayout_matrix.addWidget(self.label_matrix)
+"font-size: 20pt;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"background-color: rgba(255, 255, 255, 30);\n"
+"border: 1px solid rgba(255, 255, 255, 40);\n"
+"border-radius: 7px;\n"
+"font-weight: bold;\n"
+"font-size: 20pt;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section {\n"
+"   background-color: rgba(255, 255, 255, 30);\n"
+"border: 1px solid rgba(255, 255, 255, 40);\n"
+"border-radius: 7px;\n"
+"font-weight: bold;\n"
+"font-size: 20pt;\n"
+"}")
+        self.tableWidget_matrix.setObjectName("tableWidget_matrix")
+        self.tableWidget_matrix.setColumnCount(0)
+        self.tableWidget_matrix.setRowCount(0)
+        self.verticalLayout_metods.addWidget(self.tableWidget_matrix)
+        self.verticalLayout_matrix.addLayout(self.verticalLayout_metods)
         self.horizontalLayout.addLayout(self.verticalLayout_matrix)
         self.verticalLayout_results = QtWidgets.QVBoxLayout()
         self.verticalLayout_results.setObjectName("verticalLayout_results")
@@ -177,7 +197,6 @@ class Ui_MainWindow(object):
         self.radioButton_metod_petrova_sokolicina.setText(_translate("MainWindow", "Метод Петрова-Соколицына"))
         self.label_choose_variant.setText(_translate("MainWindow", "Необходимо выбрать вариант"))
         self.pushButton_do.setText(_translate("MainWindow", "Рассчитать"))
-        self.label_matrix.setText(_translate("MainWindow", "matrix"))
         self.label_results.setText(_translate("MainWindow", "results"))
         self.pushButton_restart.setText(_translate("MainWindow", "Сбросить"))
         self.menu_file.setTitle(_translate("MainWindow", "Файл"))
