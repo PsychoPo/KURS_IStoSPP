@@ -12,6 +12,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 		self.setupUi(self)
 
 		self.action_generate_data.triggered.connect(self.trigger_actn_gererate_data)
+		self.radioButton_metod_johns.toggled.connect(self.toggle_radiobtn_metod_johns)
+		self.radioButton_metod_johns.toggled.connect(lambda: self.pushButton_do.setEnabled(True))
+		self.radioButton_metod_petrova_sokolicina.toggled.connect(self.toggle_radiobtn_metod_petrova_sokolicina)
+		self.radioButton_metod_petrova_sokolicina.toggled.connect(lambda: self.pushButton_do.setEnabled(True))
 
 	def trigger_actn_gererate_data(self):
 		dialog_enter_values = EnterValues(self)
@@ -36,6 +40,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 		self.tableWidget_matrix.resizeColumnsToContents()
 		self.tableWidget_matrix.resizeRowsToContents()
+
+	def toggle_radiobtn_metod_johns(self):
+		self.comboBox_variants.clear()
+		self.comboBox_variants.addItems(["Для 2 станков и n деталей", "Для n > 2 станков и n деталей"])
+
+	def toggle_radiobtn_metod_petrova_sokolicina(self):
+		self.comboBox_variants.clear()
+		self.comboBox_variants.addItems(["Метод по сумме (кроме последнего столбца)", "Метод по сумме (кроме первого столбца)", "Метод по разнице (последний - первый столбец)"])
 
 class EnterValues(QtWidgets.QDialog, Ui_Dialog_enter_values):
 	'''Dialog_enter_values class'''
