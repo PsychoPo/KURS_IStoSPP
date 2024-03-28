@@ -150,6 +150,18 @@ font-size: 20pt;</string>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_restart">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="tabletTracking">
+         <bool>true</bool>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::NoContextMenu</enum>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
 font-weight: bold;
