@@ -13,10 +13,13 @@
   <property name="windowTitle">
    <string>Главное окно</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(81, 0, 135, 255), stop:0.427447 rgba(41, 61, 132, 235), stop:1 rgba(155, 79, 165, 255));
+font-family: Liberation Serif;</string>
+  </property>
   <widget class="QWidget" name="centralwidget_main">
    <property name="styleSheet">
-    <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(81, 0, 135, 255), stop:0.427447 rgba(41, 61, 132, 235), stop:1 rgba(155, 79, 165, 255));
-font-family: Liberation Serif;</string>
+    <string notr="true"/>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
@@ -39,6 +42,9 @@ font-size: 20pt;</string>
         </item>
         <item>
          <widget class="QRadioButton" name="radioButton_metod_johns">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(255, 255, 255, 30);
 border: 1px solid rgba(255, 255, 255, 40);
@@ -53,6 +59,9 @@ font-size: 20pt;</string>
         </item>
         <item>
          <widget class="QRadioButton" name="radioButton_metod_petrova_sokolicina">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(255, 255, 255, 30);
 border: 1px solid rgba(255, 255, 255, 40);
@@ -81,6 +90,9 @@ font-size: 20pt;</string>
         </item>
         <item>
          <widget class="QComboBox" name="comboBox_variants">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(255, 255, 255, 30);
 border: 1px solid rgba(255, 255, 255, 40);
@@ -92,6 +104,9 @@ font-size: 20pt;</string>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_do">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
 font-weight: bold;
@@ -151,7 +166,7 @@ font-size: 20pt;</string>
       <item>
        <widget class="QPushButton" name="pushButton_restart">
         <property name="enabled">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="cursor">
          <cursorShape>ArrowCursor</cursorShape>
@@ -185,7 +200,19 @@ background-color: rgba(255, 255, 255, 70);
        </widget>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_gantt_chart"/>
+       <layout class="QVBoxLayout" name="verticalLayout_gantt_chart">
+        <item>
+         <widget class="QGraphicsView" name="graphicsView_grantt_chart">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(255, 255, 255, 30);
+border: 1px solid rgba(255, 255, 255, 40);
+border-radius: 7px;
+font-weight: bold;
+font-size: 20pt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -197,8 +224,15 @@ background-color: rgba(255, 255, 255, 70);
      <x>0</x>
      <y>0</y>
      <width>1476</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Liberation Serif</family>
+     <pointsize>12</pointsize>
+     <italic>false</italic>
+    </font>
    </property>
    <widget class="QMenu" name="menu_file">
     <property name="title">

@@ -13,9 +13,10 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1476, 875)
-        self.centralwidget_main = QtWidgets.QWidget(parent=MainWindow)
-        self.centralwidget_main.setStyleSheet("background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(81, 0, 135, 255), stop:0.427447 rgba(41, 61, 132, 235), stop:1 rgba(155, 79, 165, 255));\n"
+        MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(81, 0, 135, 255), stop:0.427447 rgba(41, 61, 132, 235), stop:1 rgba(155, 79, 165, 255));\n"
 "font-family: Liberation Serif;")
+        self.centralwidget_main = QtWidgets.QWidget(parent=MainWindow)
+        self.centralwidget_main.setStyleSheet("")
         self.centralwidget_main.setObjectName("centralwidget_main")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget_main)
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -32,6 +33,7 @@ class Ui_MainWindow(object):
         self.label_choose_metod.setObjectName("label_choose_metod")
         self.verticalLayout_metods.addWidget(self.label_choose_metod)
         self.radioButton_metod_johns = QtWidgets.QRadioButton(parent=self.centralwidget_main)
+        self.radioButton_metod_johns.setEnabled(False)
         self.radioButton_metod_johns.setStyleSheet("background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
 "border-radius: 7px;\n"
@@ -40,6 +42,7 @@ class Ui_MainWindow(object):
         self.radioButton_metod_johns.setObjectName("radioButton_metod_johns")
         self.verticalLayout_metods.addWidget(self.radioButton_metod_johns)
         self.radioButton_metod_petrova_sokolicina = QtWidgets.QRadioButton(parent=self.centralwidget_main)
+        self.radioButton_metod_petrova_sokolicina.setEnabled(False)
         self.radioButton_metod_petrova_sokolicina.setStyleSheet("background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
 "border-radius: 7px;\n"
@@ -56,6 +59,7 @@ class Ui_MainWindow(object):
         self.label_choose_variant.setObjectName("label_choose_variant")
         self.verticalLayout_metods.addWidget(self.label_choose_variant)
         self.comboBox_variants = QtWidgets.QComboBox(parent=self.centralwidget_main)
+        self.comboBox_variants.setEnabled(False)
         self.comboBox_variants.setStyleSheet("background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
 "border-radius: 7px;\n"
@@ -64,6 +68,7 @@ class Ui_MainWindow(object):
         self.comboBox_variants.setObjectName("comboBox_variants")
         self.verticalLayout_metods.addWidget(self.comboBox_variants)
         self.pushButton_do = QtWidgets.QPushButton(parent=self.centralwidget_main)
+        self.pushButton_do.setEnabled(False)
         self.pushButton_do.setStyleSheet("QPushButton {\n"
 "font-weight: bold;\n"
 "font-size: 20pt;\n"
@@ -102,7 +107,7 @@ class Ui_MainWindow(object):
         self.label_results.setObjectName("label_results")
         self.verticalLayout_results.addWidget(self.label_results)
         self.pushButton_restart = QtWidgets.QPushButton(parent=self.centralwidget_main)
-        self.pushButton_restart.setEnabled(True)
+        self.pushButton_restart.setEnabled(False)
         self.pushButton_restart.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.pushButton_restart.setTabletTracking(True)
         self.pushButton_restart.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.NoContextMenu)
@@ -125,11 +130,24 @@ class Ui_MainWindow(object):
         self.verticalLayout_results.addWidget(self.pushButton_restart)
         self.verticalLayout_gantt_chart = QtWidgets.QVBoxLayout()
         self.verticalLayout_gantt_chart.setObjectName("verticalLayout_gantt_chart")
+        self.graphicsView_grantt_chart = QtWidgets.QGraphicsView(parent=self.centralwidget_main)
+        self.graphicsView_grantt_chart.setStyleSheet("background-color: rgba(255, 255, 255, 30);\n"
+"border: 1px solid rgba(255, 255, 255, 40);\n"
+"border-radius: 7px;\n"
+"font-weight: bold;\n"
+"font-size: 20pt;")
+        self.graphicsView_grantt_chart.setObjectName("graphicsView_grantt_chart")
+        self.verticalLayout_gantt_chart.addWidget(self.graphicsView_grantt_chart)
         self.verticalLayout_results.addLayout(self.verticalLayout_gantt_chart)
         self.horizontalLayout.addLayout(self.verticalLayout_results)
         MainWindow.setCentralWidget(self.centralwidget_main)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1476, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1476, 25))
+        font = QtGui.QFont()
+        font.setFamily("Liberation Serif")
+        font.setPointSize(12)
+        font.setItalic(False)
+        self.menubar.setFont(font)
         self.menubar.setObjectName("menubar")
         self.menu_file = QtWidgets.QMenu(parent=self.menubar)
         self.menu_file.setObjectName("menu_file")
