@@ -9,7 +9,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 		self.setupUi(self)
 
-
 def main():
 	app = QtWidgets.QApplication([])
 	window = MainWindow()
