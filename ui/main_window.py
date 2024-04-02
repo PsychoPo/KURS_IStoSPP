@@ -50,23 +50,6 @@ class Ui_MainWindow(object):
 "font-size: 20pt;")
         self.radioButton_metod_petrova_sokolicina.setObjectName("radioButton_metod_petrova_sokolicina")
         self.verticalLayout_metods.addWidget(self.radioButton_metod_petrova_sokolicina)
-        self.label_choose_variant = QtWidgets.QLabel(parent=self.centralwidget_main)
-        self.label_choose_variant.setStyleSheet("background-color: rgba(255, 255, 255, 30);\n"
-"border: 1px solid rgba(255, 255, 255, 40);\n"
-"border-radius: 7px;\n"
-"font-weight: bold;\n"
-"font-size: 20pt;")
-        self.label_choose_variant.setObjectName("label_choose_variant")
-        self.verticalLayout_metods.addWidget(self.label_choose_variant)
-        self.comboBox_variants = QtWidgets.QComboBox(parent=self.centralwidget_main)
-        self.comboBox_variants.setEnabled(False)
-        self.comboBox_variants.setStyleSheet("background-color: rgba(255, 255, 255, 30);\n"
-"border: 1px solid rgba(255, 255, 255, 40);\n"
-"border-radius: 7px;\n"
-"font-weight: bold;\n"
-"font-size: 20pt;")
-        self.comboBox_variants.setObjectName("comboBox_variants")
-        self.verticalLayout_metods.addWidget(self.comboBox_variants)
         self.pushButton_do = QtWidgets.QPushButton(parent=self.centralwidget_main)
         self.pushButton_do.setEnabled(False)
         self.pushButton_do.setStyleSheet("QPushButton {\n"
@@ -148,8 +131,6 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_restart.setObjectName("pushButton_restart")
         self.verticalLayout_results.addWidget(self.pushButton_restart)
-        self.verticalLayout_gantt_chart = QtWidgets.QVBoxLayout()
-        self.verticalLayout_gantt_chart.setObjectName("verticalLayout_gantt_chart")
         self.graphicsView_grantt_chart = QtWidgets.QGraphicsView(parent=self.centralwidget_main)
         self.graphicsView_grantt_chart.setStyleSheet("background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
@@ -157,8 +138,7 @@ class Ui_MainWindow(object):
 "font-weight: bold;\n"
 "font-size: 20pt;")
         self.graphicsView_grantt_chart.setObjectName("graphicsView_grantt_chart")
-        self.verticalLayout_gantt_chart.addWidget(self.graphicsView_grantt_chart)
-        self.verticalLayout_results.addLayout(self.verticalLayout_gantt_chart)
+        self.verticalLayout_results.addWidget(self.graphicsView_grantt_chart)
         self.horizontalLayout.addLayout(self.verticalLayout_results)
         MainWindow.setCentralWidget(self.centralwidget_main)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
@@ -175,13 +155,14 @@ class Ui_MainWindow(object):
         self.menu_data.setObjectName("menu_data")
         MainWindow.setMenuBar(self.menubar)
         self.action_save_data = QtGui.QAction(parent=MainWindow)
+        self.action_save_data.setEnabled(False)
         self.action_save_data.setObjectName("action_save_data")
         self.action_save_chart = QtGui.QAction(parent=MainWindow)
+        self.action_save_chart.setEnabled(False)
         self.action_save_chart.setObjectName("action_save_chart")
         self.action_generate_data = QtGui.QAction(parent=MainWindow)
         self.action_generate_data.setObjectName("action_generate_data")
         self.menu_file.addAction(self.action_save_data)
-        self.menu_file.addAction(self.action_save_chart)
         self.menu_data.addAction(self.action_generate_data)
         self.menubar.addAction(self.menu_file.menuAction())
         self.menubar.addAction(self.menu_data.menuAction())
@@ -195,9 +176,8 @@ class Ui_MainWindow(object):
         self.label_choose_metod.setText(_translate("MainWindow", "Выберите метод и вариант"))
         self.radioButton_metod_johns.setText(_translate("MainWindow", "Метод Джонсона"))
         self.radioButton_metod_petrova_sokolicina.setText(_translate("MainWindow", "Метод Петрова-Соколицына"))
-        self.label_choose_variant.setText(_translate("MainWindow", "Необходимо выбрать вариант"))
         self.pushButton_do.setText(_translate("MainWindow", "Рассчитать"))
-        self.label_results.setText(_translate("MainWindow", "results"))
+        self.label_results.setText(_translate("MainWindow", "Здесь будут ваши результаты"))
         self.pushButton_restart.setText(_translate("MainWindow", "Сбросить"))
         self.menu_file.setTitle(_translate("MainWindow", "Файл"))
         self.menu_data.setTitle(_translate("MainWindow", "Данные"))
