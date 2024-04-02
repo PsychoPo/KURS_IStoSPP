@@ -2,7 +2,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsView, QGraphicsS
 from PyQt6.QtGui import QColor, QPen, QFont
 from PyQt6.QtCore import Qt
 from copy import deepcopy, copy
-
+from random import randint
 
 def full_time(matr, r):
     mcopy = deepcopy(matr)
@@ -245,8 +245,9 @@ def sum_x2(matrix, i, j):
 
 
 def draw_gantt_chart(matrix, scene, parent):
-    colors = ['#EB9D42', '#EBE442', '#8CEB42', '#42EBAE', '#42D7EB',
-              '#428FEB', '#4542EB', '#8C42EB', '#C942EB', '#EB4256']
+    colors = []
+    for i in range(len(matrix[0])):
+        colors.append('#%06X' % randint(0, 0xFFFFFF))
 
     x_matrix = deepcopy(matrix)
     x1 = 100
