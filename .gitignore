@@ -12,3 +12,6 @@ __pycache__/
 
 # DS_Store (MacOS Finder)
 *.DS_Store
+
+# win executes
+*.exe
