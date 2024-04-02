@@ -112,7 +112,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 except AttributeError:
                     row_data.append("No data")
             writer.writerow(row_data)
-
         
         
 
